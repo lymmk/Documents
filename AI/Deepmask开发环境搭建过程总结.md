@@ -39,9 +39,9 @@
 	+ 重启电脑，在登录界面 ctr+alt+f1 进入文本模式
 		>$ sudo service lightdm stop 关闭图形界面
 
-		>$ sudo ./Nvidia_*.run
+		>$ sudo ./Nvidia_*.run --no-opengl-files
 
-		安装开始，按照提示进行即可。
+		安装开始，按照提示进行即可。(不加`--no-opengl-files`参数，可能会导致循环登录)
 + 验证
 	>nvidia-smi 可以显示显卡信息即为安装成功
 # 安装cuda #
@@ -51,7 +51,7 @@
 ## 开始安装 ##
 + 如前文操作，进入文本模式，关闭图形界面
 + 执行安装命令
-	>sudo sh cuda_8.0.44_linux.run -no-opengl-files  必须加后面参数，否则可能会循环进入登录界面
+	>sudo sh cuda_8.0.44_linux.run
 	
 	开始安装，第一步是否安装NVIDIA显卡驱动，因为之前单独安装过，选择 no,其它选项都安装，等待完成。
 + 重新启动图形化界面
@@ -59,8 +59,8 @@
 + 设置环境变量。
 	>$ sudo gedit /etc/profile
 	
-		$ export PATH=/usr/local/cuda-8.0/bin:$PATH
-		$ export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+		 export PATH=/usr/local/cuda-8.0/bin:$PATH
+		 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64
 + 验证
 	>$ nvcc –V  会输出CUDA的版本信息 ，如果提示没有nvcc命令，按照提示安装nvcc
 + 编译Samples
