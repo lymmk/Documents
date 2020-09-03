@@ -308,8 +308,8 @@
 1. 配置防火墙
 
 	> 	# 开启 80 端口
-	> 	# firewall-cmd --zone=public --add-port=80:http --permanent 
-	> 	# forewall-cmd --reload
+	> 	# firewall-cmd --zone=public --add-port=80/tcp --permanent 
+	> 	# firewall-cmd --reload
 	> 	#
 	> 	# 重启 httpd 服务
 	> 	# systemctl restart httpd
@@ -360,7 +360,7 @@
 	> 	# include进来其它配置文件
 	> 	IncludeOptional conf.d/*.conf
 
-# 下载配置 mod_wsgi 连接 Django 使用#
+# 2020/9/3 10:07:36 待完成 下载配置 mod_wsgi 连接 Django 使用#
 1. 安装 httpd-devel
 
 	> 	# yum install -y httpd-devel
